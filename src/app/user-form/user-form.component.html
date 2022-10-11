@@ -1,0 +1,78 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+  <div class="p-float-label mx-3 mt-3 ">
+    <input formControlName="firstName" type="text" pInputText>
+    <label for="float-input">First Name</label>
+    <div *ngIf="(submitted || myFormControl['firstName'].touched) && myFormControl['firstName'].errors?.['required']"
+      class="text-danger">First Name is required</div>
+
+
+  </div>
+
+  <div class="p-float-label mx-3 mt-3">
+    <input formControlName="middleName" type="text" pInputText>
+    <label for="float-input">Middle Name</label>
+    <div *ngIf="(submitted || myFormControl['middleName'].touched) && myFormControl['middleName'].errors?.['required']"
+      class="text-danger">Middle Name is required</div>
+
+  </div>
+
+  <div class="p-float-label mx-3 mt-3">
+    <input formControlName="lastName" type="text" pInputText>
+    <label for="float-input">Last Name</label>
+    <div *ngIf="(submitted || myFormControl['lastName'].touched) && myFormControl['lastName'].errors?.['required']"
+      class="text-danger">Last Name is required</div>
+
+  </div>
+
+
+  <div class="p-float-label mx-3 mt-3">
+    <input formControlName="email" id="float-input" type="text" pInputText>
+    <label for="float-input">Email</label>
+    <div *ngIf="(submitted || myFormControl['email'].touched) && myFormControl['email'].errors?.['required']"
+      class="text-danger">Email is required</div>
+
+
+  </div>
+
+  <div class="mx-3 mt-3">
+    <p-dropdown  placeholder="Select a City" formControlName="city" [options]="cities" optionLabel="name">
+    </p-dropdown>
+    <div *ngIf="(submitted || myFormControl['city'].touched) && myFormControl['city'].errors?.['required']"
+      class="text-danger">City is required</div>
+  </div>
+
+
+
+  <div class="mx-3 mt-3">
+    <p-dropdown placeholder="Select gender" formControlName="gender" [options]="gender" optionLabel="kind">
+    </p-dropdown>
+    <div *ngIf="(submitted || myFormControl['gender'].touched) && myFormControl['gender'].errors?.['required']"
+      class="text-danger">Gender is required</div>
+
+
+  </div>
+
+  <div class="col-2 form-group mb-3">
+    
+    <input  type="text" placeholder="DOB" class="form-control mx-3 mt-3" formControlName="dob" bsDatepicker>
+    <div *ngIf="(submitted || myFormControl['dob'].touched)&& myFormControl['dob'].errors?.['required']"
+      class="text-danger">DOB is required</div>
+
+  </div>
+
+  <div class="p-float-label mx-3 mt-3">
+    <input appPhoneMask formControlName="phone" type="text" pInputText>
+    <label for="float-input">Phone Number</label>
+    <div *ngIf="(submitted || myFormControl['phone'].touched)&& myFormControl['phone'].errors?.['required']"
+      class="text-danger">Phone no is required</div>
+
+  </div>
+  <div class="mx-3 mt-3">
+    <button pButton type="submit">Submit</button>
+
+  </div>
+
+
+
+</form>

@@ -1,0 +1,32 @@
+<p-table [value]="details" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>City</th>
+            <th>Dob</th>
+            <th>Phone</th>
+            <th>Action</th>
+            
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-detail >
+        <tr  >
+            <td>{{detail.firstName}}</td>
+            <td>{{detail.middleName}}</td>
+            <td>{{detail.lastName}}</td>
+            <td>{{detail.email}}</td>
+            <td>{{detail.gender.kind}}</td>
+            <td>{{detail.dob}}</td>
+            <td>{{detail.city.name}}</td>
+            <td>{{detail.phone}}</td>
+            <td><i class="pi pi-user-edit"></i><i class="pi pi-trash"></i></td>
+        </tr>
+    </ng-template>
+</p-table>
+{{details}}
+
