@@ -1,8 +1,6 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Component,  OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-import { PhoneMaskDirective } from '../phone-mask.directive';
 import { Details } from '../user';
 
 
@@ -12,22 +10,23 @@ import { Details } from '../user';
   styleUrls: ['./tabular-data.component.scss']
 })
 export class TabularDataComponent implements OnInit {
-  details:Details[]=[];
-  constructor(private dataService: DataService) {
+  details: Details[]=[];
+  constructor(private dataService: DataService, public router:Router) {
 
   }
 
 
   ngOnInit(): void {
-    this.dataService.subject.subscribe((res:Details) => {
-      this.details.push(res) ;
-      console.log(this.details)
-    }
-
-    )
+    
+    this.details=this.dataService.collection
   }
 
-  
+  public onDelete(index:number){
+//console.log('delete')
+this.dataService.collection.splice(index,1)
+  }
  
-
+public onEdit(index:number){
+  this.router.navigate(['editForm/',index])
+}
 }

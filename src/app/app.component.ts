@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { DataService } from './data.service';
 
 
 
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
- 
+export class AppComponent {
 
-   ngOnInit(): void {
-     
-   }
+  constructor(private data: DataService) {}
+
+  @HostListener("window:beforeunload") unloadHandler() {
+    localStorage.setItem('tableData', JSON.stringify(this.data.collection))
+  }
 }

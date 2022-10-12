@@ -6,6 +6,8 @@ import { UserFormComponent } from './user-form/user-form.component';
 const routes: Routes = [
    {path:'',component:UserFormComponent},
    {path:'table',component:TabularDataComponent},
+   {path:'editForm/:index',component:UserFormComponent},
+
 ];
 
 @NgModule({

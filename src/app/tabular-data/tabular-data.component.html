@@ -1,4 +1,4 @@
-<p-table [value]="details" responsiveLayout="scroll">
+ <p-table [value]="details" responsiveLayout="scroll">
     <ng-template pTemplate="header">
         <tr>
             <th>First Name</th>
@@ -14,19 +14,20 @@
 
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-detail >
+    <ng-template pTemplate="body" let-detail let-i="rowIndex" >
         <tr  >
             <td>{{detail.firstName}}</td>
             <td>{{detail.middleName}}</td>
             <td>{{detail.lastName}}</td>
             <td>{{detail.email}}</td>
             <td>{{detail.gender.kind}}</td>
-            <td>{{detail.dob}}</td>
             <td>{{detail.city.name}}</td>
+            <td>{{detail.dob | date}}</td>
             <td>{{detail.phone}}</td>
-            <td><i class="pi pi-user-edit"></i><i class="pi pi-trash"></i></td>
+            <td class="hand"><i (click)="onEdit(i)" class="pi pi-user-edit"></i><i (click)="onDelete(i)" class="pi pi-trash"></i></td>
         </tr>
     </ng-template>
-</p-table>
-{{details}}
+</p-table> 
+<button class="btn btn-primary mt-3 mx-3" routerLink="/">Add</button>
+
 

@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 import { Details } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-public subject=new Subject<Details>();
-  constructor() { }
+collection:Array<Details>=[]
 
-sendData(data: Details){
-  this.subject.next(data)
-}
+  constructor() { 
+    let data:any=(localStorage.getItem('tableData'))
+   if(data){
+    this.collection=JSON.parse(data)
+   } 
+  }
 
-getData():Observable<Details>{
-  return this.subject.asObservable();
-}
+
 }
