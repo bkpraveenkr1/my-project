@@ -20,11 +20,11 @@
             <td>{{detail.middleName}}</td>
             <td>{{detail.lastName}}</td>
             <td>{{detail.email}}</td>
-            <td>{{detail.gender.kind}}</td>
-            <td>{{detail.city.name}}</td>
+            <td>{{detail.gender?.kind}}</td>
+            <td>{{detail.city?.name}}</td>
             <td>{{detail.dob | date}}</td>
             <td>{{detail.phone}}</td>
-            <td class="hand"><i (click)="onEdit(i)" class="pi pi-user-edit"></i><i (click)="onDelete(i)" class="pi pi-trash"></i></td>
+            <td class="hand"><i (click)="openEditModal(detail)" class="pi pi-user-edit"></i><i (click)="onDelete(detail)" class="pi pi-trash"></i></td>
         </tr>
     </ng-template>
 </p-table> 

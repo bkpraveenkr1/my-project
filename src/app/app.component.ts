@@ -12,7 +12,7 @@ export class AppComponent {
 
   constructor(private data: DataService) {}
 
-  @HostListener("window:beforeunload") unloadHandler() {
-    localStorage.setItem('tableData', JSON.stringify(this.data.collection))
-  }
+  // @HostListener("window:beforeunload") unloadHandler() {
+  //   sessionStorage.setItem('tableData', JSON.stringify(this.data.collection))
+  // }
 }

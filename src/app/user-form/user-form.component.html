@@ -1,6 +1,12 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
 <form [formGroup]="myForm" >
 
-  <div class="p-float-label mx-3 mt-4 ">
+  <div class="p-float-label mx-3 mt-5 ">
     <input formControlName="firstName" type="text" pInputText>
     <label for="float-input">First Name</label>
     <div *ngIf="(submitted || myFormControl['firstName'].touched) && myFormControl['firstName'].errors?.['required']"
@@ -9,7 +15,7 @@
 
   </div>
 
-  <div class="p-float-label mx-3 mt-4">
+  <div class="p-float-label mx-3 mt-5">
     <input formControlName="middleName" type="text" pInputText>
     <label for="float-input">Middle Name</label>
     <div *ngIf="(submitted || myFormControl['middleName'].touched) && myFormControl['middleName'].errors?.['required']"
@@ -17,7 +23,7 @@
 
   </div>
 
-  <div class="p-float-label mx-3 mt-4">
+  <div class="p-float-label mx-3 mt-5">
     <input formControlName="lastName" type="text" pInputText>
     <label for="float-input">Last Name</label>
     <div *ngIf="(submitted || myFormControl['lastName'].touched) && myFormControl['lastName'].errors?.['required']"
@@ -26,7 +32,7 @@
   </div>
 
 
-  <div class="p-float-label mx-3 mt-4">
+  <div class="p-float-label mx-3 mt-5">
     <input formControlName="email" id="float-input" type="text" pInputText>
     <label for="float-input">Email</label>
     <div *ngIf="(submitted || myFormControl['email'].touched) && myFormControl['email'].errors?.['required']"
@@ -62,17 +68,16 @@
 
   </div>
 
-  <div class="p-float-label mx-3 mt-4">
+  <div class="p-float-label mx-3 mt-5">
     <input appPhoneMask formControlName="phone" type="text" pInputText>
     <label for="float-input">Phone Number</label>
     <div *ngIf="(submitted || myFormControl['phone'].touched)&& myFormControl['phone'].errors?.['required']"
       class="text-danger">Phone no is required</div>
 
   </div>
-  <div class="mx-3 mt-3">
+  <div class="mx-3 mt-3 mb-3">
     <button  pButton (click)="edit? onUpdate() :onSubmit()" type="submit">{{edit ?'Update':'Submit'}}</button>
-    <button  class="p-button-secondary mx-2" pButton type="submit">Cancel</button>
-
+    
   </div>
 
 

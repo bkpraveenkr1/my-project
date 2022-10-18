@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { DataService } from '../data.service';
-import { City, Gender } from '../user';
-
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ApiService } from '../shared/api.service';
+import { City, Details, Gender } from '../user';
+import { userObj } from './user-form.model';
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -12,6 +12,16 @@ import { City, Gender } from '../user';
 })
 export class UserFormComponent implements OnInit {
 edit:boolean=false;
+title?: string;
+editUserId!:number;
+closeBtnName?: string;
+list: any[] = [];
+cities: City[];
+gender: Gender[];
+submitted = false;
+userObj:userObj=new userObj();
+userData:any;
+//userIndex!: number;
 
   myForm: FormGroup = new FormGroup({
     firstName: new FormControl(null, Validators.required),
@@ -30,12 +40,8 @@ edit:boolean=false;
     phone: new FormControl(null, Validators.required),
 
   });
-  cities: City[];
-  gender: Gender[];
-  submitted = false;
-  userId!: number;
-
-  constructor(public fb: FormBuilder, private dataService: DataService, private route: ActivatedRoute, private router: Router) {
+ 
+  constructor(private apiService:ApiService, public bsModalRef: BsModalRef,public fb: FormBuilder,  private route: ActivatedRoute, private router: Router) {
 
     this.cities = [
       { name: 'New York' },
@@ -52,28 +58,34 @@ edit:boolean=false;
   }
 
   ngOnInit(): void {
-    this.userId = this.route.snapshot.params['index'];
-    if(this.userId){
+    // this.apiService.getUsers().subscribe(res=>{
+    //   this.userData=res
+    // })
+    // this.userIndex = this.route.snapshot.params['index'];
+
+   if(this.editUserId){
+    this.editForm();
+   }
+  }
+
+  editForm(){
       this.edit=true;
-      for (let i = 0; i <= this.dataService.collection.length; i++) {
-        if (this.userId == i) {
+      for (let i = 0; i <= this.userData.length; i++) {
+        if (this.editUserId == this.userData[i]?.id) {
           this.myForm = this.fb.group({
-            firstName: [this.dataService.collection[i].firstName],
-            middleName: [this.dataService.collection[i].middleName],
-            lastName: [this.dataService.collection[i].lastName],
-            email: [this.dataService.collection[i].email],
-            dob: [new Date(this.dataService.collection[i].dob) ],
-            city: [this.dataService.collection[i].city],
-            gender: [this.dataService.collection[i].gender],
-            phone: [this.dataService.collection[i].phone],
+            firstName: [this.userData[i].firstName],
+            middleName: [this.userData[i].middleName],
+            lastName: [this.userData[i].lastName],
+            email: [this.userData[i].email],
+            dob: [new Date(this.userData[i].dob) ],
+            city: [this.userData[i].city],
+            gender: [this.userData[i].gender],
+            phone: [this.userData[i].phone],
   
           })
-          console.log(this.myForm.value)
         }
       }
-    }
-    //console.log(this.userId)
- 
+   
   }
 
   get myFormControl() {
@@ -81,25 +93,48 @@ edit:boolean=false;
   }
 
   onSubmit() {
-    console.log('onSubmit')
     this.submitted = true;
     if (this.myForm.invalid) {
       return;
     }
-    this.dataService.collection.push(this.myForm.value)
-    //console.log(this.dataService.collection)
+    //this.dataService.collection.push(this.myForm.value)
+
+    this.userObj.firstName=this.myForm.value.firstName
+    this.userObj.middleName=this.myForm.value.middleName
+    this.userObj.lastName=this.myForm.value.lastName
+    this.userObj.email=this.myForm.value.email
+    this.userObj.gender=this.myForm.value.gender
+    this.userObj.city=this.myForm.value.city
+    this.userObj.dob=this.myForm.value.dob
+    this.userObj.phone=this.myForm.value.phone
+
+    this.apiService.postUser(this.userObj).subscribe((res:any)=>{
+      //console.log(res)
+    }
+    )
     this.router.navigate(['table'])
   }
 
   onUpdate(){
+   // console.log(this.editUserId)
     this.submitted = true;
     if (this.myForm.invalid) {
       return;
     }
-    this.dataService.collection[this.userId]=this.myForm.value
-    // this.dataService.collection.splice(this.userId,1,this.myForm.value)
-    //console.log(this.dataService.collection)
+    // this.dataService.collection[this.Index]=this.myForm.value
+    this.userObj.firstName=this.myForm.value.firstName
+    this.userObj.middleName=this.myForm.value.middleName
+    this.userObj.lastName=this.myForm.value.lastName
+    this.userObj.email=this.myForm.value.email
+    this.userObj.gender=this.myForm.value.gender
+    this.userObj.city=this.myForm.value.city
+    this.userObj.dob=this.myForm.value.dob
+    this.userObj.phone=this.myForm.value.phone
+    this.apiService.updateUser(this.userObj,this.editUserId).subscribe((res)=>{
+      //console.log(res)
+    })
     this.router.navigate(['table'])
+    this.bsModalRef.hide();
   }
 }
 
