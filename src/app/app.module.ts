@@ -15,12 +15,20 @@ import {TableModule} from 'primeng/table';
 import { UserFormComponent } from './user-form/user-form.component';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { HeaderComponent } from './shared/header/header.component';
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { CartItemsComponent } from './cart-items/cart-items.component';
 @NgModule({
   declarations: [
     AppComponent,
     PhoneMaskDirective,
     TabularDataComponent,
-    UserFormComponent
+    UserFormComponent,
+    HeaderComponent,
+    MenuComponent,
+    FooterComponent,
+    CartItemsComponent
   ],
   imports: [
     BrowserModule,

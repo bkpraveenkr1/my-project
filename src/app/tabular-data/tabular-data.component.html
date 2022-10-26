@@ -1,4 +1,35 @@
- <p-table [value]="details" responsiveLayout="scroll">
+ 
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of details">
+        <td>{{item.name}}</td>
+        <td>{{item.quantity}}</td>
+        <td>&#x20B9; {{item.price}}</td>
+        
+
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+    </tbody>
+
+  </table> 
+  <div class="text-center">
+    <button class="btn btn-primary" routerLink="/form">Checkout</button>
+
+  </div>
+  
+  <!-- <p-table [value]="details" responsiveLayout="scroll">
     <ng-template pTemplate="header">
         <tr>
             <th>First Name</th>
@@ -25,9 +56,44 @@
             <td>{{detail.dob | date}}</td>
             <td>{{detail.phone}}</td>
             <td class="hand"><i (click)="openEditModal(detail)" class="pi pi-user-edit"></i><i (click)="onDelete(detail)" class="pi pi-trash"></i></td>
-        </tr>
+           
+          </tr>
     </ng-template>
-</p-table> 
-<button class="btn btn-primary mt-3 mx-3" routerLink="/">Add</button>
+</p-table>  -->
+<!-- <button class="hand"><i (click)="openEditModal()" class="pi pi-user-edit"></i><i  class="pi pi-trash"></i></button> -->
+
+<!-- <button class="btn btn-primary mt-3 mx-3" routerLink="/">Add</button> 
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Middle Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Gender</th>
+        <th scope="col">City</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Phone</th>
+
+        <th scope="col">Action</th>
 
 
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{user.firstName}}</td>
+        <td>{{user.middleName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.gender.kind}}</td>
+        <td>{{user.city.name}}</td>
+        <td>{{user.dob |date}}</td>
+        <td>{{user.phone}}</td>
+
+      </tr>
+      
+    </tbody>
+  </table> -->

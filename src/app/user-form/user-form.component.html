@@ -1,10 +1,92 @@
-<div class="modal-header">
-  <h4 class="modal-title pull-left">{{title}}</h4>
-  <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-    <span aria-hidden="true" class="visually-hidden">&times;</span>
-  </button>
+
+ <div class="container mb-3">
+    <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 mt-4 col-4">
+            <label class="form-label">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control">
+            <div *ngIf="(submitted || regFormControl['firstName'].touched) && regFormControl['firstName'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+        </div>
+        <div class="mb-3 col-4">
+            <label class="form-label">Middle Name</label>
+            <input type="text" formControlName="middleName" class="form-control">
+            <div *ngIf="(submitted || regFormControl['middleName'].touched) && regFormControl['middleName'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+        </div>
+        <div class="mb-3 col-4">
+            <label class="form-label">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control">
+            <div *ngIf="(submitted || regFormControl['lastName'].touched) && regFormControl['lastName'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+        </div>
+        <div class="mb-3 col-4">
+            <label class="form-label">Email address</label>
+            <input type="email" formControlName="email" class="form-control">
+            <div *ngIf="(submitted || regFormControl['email'].touched) && regFormControl['email'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+            <div *ngIf="(submitted || regFormControl['email'].touched) && regFormControl['email'].errors?.['email']" class="text-danger">
+                Incorrect email id
+            </div>
+        </div>
+        <div class="mb-3 col-4">
+            <label class="form-label">Gender</label>
+            <select class="form-select " formControlName="gender" >
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <div *ngIf="(submitted || regFormControl['gender'].touched) && regFormControl['gender'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+        </div>
+
+        <div class="mb-3 col-4">
+            <label class="form-label">City</label>
+            <select class="form-select " formControlName="city">
+                <option value="" >Select</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Hydrabad">Hydrabad</option>
+            </select>
+            <div *ngIf="(submitted || regFormControl['city'].touched) && regFormControl['city'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+        </div>
+
+        <div class="mb-3 col-4 ">
+            <label class="form-label">Mobile</label>
+            <input type="number" class="form-control" formControlName="mobile">
+            <div *ngIf="(submitted || regFormControl['mobile'].touched) && regFormControl['mobile'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+            <div *ngIf="(submitted || regFormControl['mobile'].touched) && regFormControl['mobile'].errors?.['pattern']" class="text-danger">
+               Mobile no must start with 6,7,8,9 and must have 10 digits
+            </div>
+        </div>
+
+        <div class="mb-5 col-4 ">
+            <label class="form-label">DOB</label>
+            <input type="text" class="form-control" placeholder="Datepicker" formControlName="dob" bsDatepicker>
+            <div *ngIf="(submitted || regFormControl['dob'].touched) && regFormControl['dob'].errors?.['required']" class="text-danger">
+                Required field
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">Submit</button>
+
+    </form>
 </div>
-<form [formGroup]="myForm" >
+<!-- <div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+ <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>  -->
+<!-- </div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
   <div class="p-float-label mx-3 mt-5 ">
     <input formControlName="firstName" type="text" pInputText>
@@ -76,10 +158,11 @@
 
   </div>
   <div class="mx-3 mt-3 mb-3">
-    <button  pButton (click)="edit? onUpdate() :onSubmit()" type="submit">{{edit ?'Update':'Submit'}}</button>
+     <button  pButton (click)="edit? onUpdate() :onSubmit()" type="submit">{{edit ?'Update':'Submit'}}</button> -->
+    <!-- <button  pButton  type="submit">Submit</button>
     
   </div>
 
 
 
-</form>
+</form>  -->

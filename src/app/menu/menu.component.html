@@ -1,0 +1,39 @@
+<div class="container5 mt-5 ">
+  <strong class="heading">Our Menu</strong>
+  <div class="cards-container ">
+    <div class="card" *ngFor="let item of menuData; let i=index">
+      <div class="card-image-container">
+        <img src="{{ item.imageUrl }}" class="image" />
+      </div>
+      <div class="card-details-container">
+        <h3 class="card-heading">{{ item.title }}</h3>
+        <p class="description">{{ item.description }}</p>
+
+        <div>
+          <button type="button" class="btn btn-secondary" (click)="increase(item)"><i class="fa fa-plus"></i></button>
+          <span class="text-light m-1">{{item.quantity}}</span>
+          <button type="button" class="btn btn-secondary" (click)="decrease(item)"><i class="fa fa-minus"></i></button>
+        </div>
+
+        <div class="price-container">
+          <p class="price">${{ item.price }}</p>
+          <div class="cart-icon-container">
+            <i class="fa-solid fa-cart-shopping cart-icon" (click)="addToCart(item)"></i>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- <button
+      class="btn btn-info m-3"
+      *ngIf="count < localMenuData.length"
+      (click)="seeMore()"
+    >
+      <strong>See More...</strong>
+    </button> -->
+</div>

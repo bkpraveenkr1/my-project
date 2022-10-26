@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { userObj } from '../user-form/user-form.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,18 @@ baseUrl='http://localhost:3000/posts/';
 
   deleteUser(id:any){
     return this.http.delete<any>(this.baseUrl+id)
+  }
+
+  public getJson(): Observable<any> {
+    return this.http.get('./assets/data.json');
+  }
+
+  addToCart(data:any,id:number){
+    console.log(id)
+   return this.http.post<any>(this.baseUrl+id,data)
+  }
+
+  getCartItems(){
+    return this.http.get<any>(this.baseUrl);
   }
 }

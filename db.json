@@ -1,101 +1,16 @@
 {
   "posts": [
     {
-      "firstName": "test",
-      "middleName": "form ",
-      "lastName": "model",
-      "email": "Bkpraveen.kr@gmail.com",
-      "gender": "Male",
-      "city": "London",
-      "dob": "2022-10-01T04:30:05.000Z",
-      "phone": "(111) 111-11111",
-      "id": 14
+      "name": "Paneer Tikka",
+      "price": "20",
+      "quantity": 1,
+      "id": 1
     },
     {
-      "firstName": "fhd",
-      "middleName": "sfgsd",
-      "lastName": "fg",
-      "email": "Bkpraveen.kr@gmail.com",
-      "gender": "Male",
-      "city": "New York",
-      "dob": "2022-10-01T05:41:30.000Z",
-      "phone": "(111) 111-11111",
-      "id": 15
-    },
-    {
-      "firstName": "asd",
-      "middleName": "asd",
-      "lastName": "asd",
-      "email": "Bkpraveen.kr@gmail.com",
-      "gender": {
-        "kind": "Male"
-      },
-      "city": {
-        "name": "New York"
-      },
-      "dob": "2022-10-01T05:43:12.000Z",
-      "phone": "(111) 111-11111",
-      "id": 16
-    },
-    {
-      "firstName": "stfs",
-      "middleName": "fg",
-      "lastName": "sdfg",
-      "email": "Bkpraveen.kr@gmail.com",
-      "gender": {
-        "kind": "Male"
-      },
-      "city": {
-        "name": "London"
-      },
-      "dob": "2022-10-01T06:36:13.000Z",
-      "phone": "(111) 111-11111",
-      "id": 21
-    },
-    {
-      "firstName": "wwwww",
-      "middleName": "ww",
-      "lastName": "w",
-      "email": "Bkpraveen.kr@gmail.com",
-      "gender": {
-        "kind": "Male"
-      },
-      "city": {
-        "name": "New York"
-      },
-      "dob": "2022-10-01T08:48:18.000Z",
-      "phone": "(111) 111-11111",
-      "id": 22
-    },
-    {
-      "firstName": "www",
-      "middleName": "ww",
-      "lastName": "w",
-      "email": "Bkpraveen.kr@gmail.com",
-      "gender": {
-        "kind": "Male"
-      },
-      "city": {
-        "name": "New York"
-      },
-      "dob": "2022-10-01T08:48:18.000Z",
-      "phone": "(111) 111-11111",
-      "id": 24
-    },
-    {
-      "firstName": "cc",
-      "middleName": "aaaaaa",
-      "lastName": "aa",
-      "email": "Bkpraveen.kr@gmail.com",
-      "gender": {
-        "kind": "Male"
-      },
-      "city": {
-        "name": "London"
-      },
-      "dob": "2022-10-01T12:15:31.000Z",
-      "phone": "(111) 111-11111",
-      "id": 25
+      "name": "Butter Chicken",
+      "price": "30",
+      "quantity": 3,
+      "id": 2
     }
   ],
   "comments": [],

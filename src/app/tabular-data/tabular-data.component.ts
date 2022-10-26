@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
@@ -14,51 +13,63 @@ import { userObj } from '../user-form/user-form.model';
   styleUrls: ['./tabular-data.component.scss']
 })
 export class TabularDataComponent implements OnInit {
-  details: userObj[] = [];
+  //details: Array<userObj> = [];
+  details:any=[];
   bsModalRef?: BsModalRef;
-  id!: number;
-  editUserId!: number;
-  constructor(private apiService: ApiService, private modalService: BsModalService, private dataService: DataService, public router: Router) {
+  //editUserId!: number;
+  //user: any;
+  id:any;
+  editUserIndex!: number;
 
+  constructor(private apiService: ApiService, private modalService: BsModalService, private dataService: DataService, public router: Router) {
   }
 
 
   ngOnInit(): void {
+    // this.dataService.cast.subscribe((res:any) => {     
+      
+    //   this.details.push(res)
+    
+    // })
+
+
 
     //this.details=this.dataService.collection
-    this.getData();
-  }
-
-  private getData() {
-    this.apiService.getUsers().subscribe((res) => {
-      this.details = res
-      //  console.log(this.details)
+   // this.getData();
+    this.apiService.getCartItems().subscribe((res:any)=>{
+      //console.log(res)
+      this.details=res
     })
   }
+
+  // private getData() {
+  //   this.apiService.getUsers().subscribe((res) => {
+  //     this.details = res
+  //   })
+  // }
 
   public onDelete(value: any) {
-    this.id = value.id
+   this.id = value.id
     //this.dataService.collection.splice(index,1)
     this.apiService.deleteUser(this.id).subscribe((res) => {
-      // console.log(res)
     })
 
-    this.getData();
+    //this.getData();
 
   }
 
-  public openEditModal(value:any) {
-    //this.router.navigate(['editForm/',index])
-    this.editUserId=value.id
-    const initialState: ModalOptions = {
-      initialState: {
-        editUserId: this.editUserId,
-        title: 'Edit Modal',
-        userData: this.details
-      }
-    };
-    this.bsModalRef = this.modalService.show(UserFormComponent, initialState);
-    this.bsModalRef.content.closeBtnName = 'Close';
+  public openEditModal(values:any) {
+    // this.router.navigate(['editForm/',index])
+    // const initialState: ModalOptions = {
+    //   initialState: {
+    //     editUserIndex: value,
+    //     title: 'Edit Modal',
+    //      userData: this.details
+    //   }
+    // };
+    // this.bsModalRef = this.modalService.show(UserFormComponent, initialState);
+    // this.bsModalRef.content.closeBtnName = 'Close';
 
   }
+  
 }
