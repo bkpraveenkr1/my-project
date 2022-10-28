@@ -19,6 +19,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { CartItemsComponent } from './cart-items/cart-items.component';
     HeaderComponent,
     MenuComponent,
     FooterComponent,
-    CartItemsComponent
+    CartItemsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

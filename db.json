@@ -11,6 +11,66 @@
       "price": "30",
       "quantity": 3,
       "id": 2
+    },
+    {
+      "name": "Coca Cola",
+      "price": "15",
+      "quantity": 3,
+      "id": 3
+    },
+    {
+      "name": "Virgin Mojito",
+      "price": "45",
+      "quantity": 3,
+      "id": 4
+    },
+    {
+      "name": "Paneer Tikka",
+      "price": "20",
+      "quantity": 2,
+      "id": 5
+    },
+    {
+      "name": "Butter Naan",
+      "price": "10",
+      "quantity": 6,
+      "id": 6
+    },
+    {
+      "name": "Paneer Tikka",
+      "price": "20",
+      "quantity": 2,
+      "id": 7
+    },
+    {
+      "name": "Paneer Tikka",
+      "price": "20",
+      "quantity": 1,
+      "id": 8
+    },
+    {
+      "name": "Paneer Tikka",
+      "price": "20",
+      "quantity": 2,
+      "id": 9
+    },
+    {
+      "name": "Virgin Mojito",
+      "price": "45",
+      "quantity": 2,
+      "id": 10
+    },
+    {
+      "name": "Paneer Tikka",
+      "price": "20",
+      "quantity": 2,
+      "id": 11
+    },
+    {
+      "name": "Butter Naan",
+      "price": "10",
+      "quantity": 1,
+      "id": 12
     }
   ],
   "comments": [],
