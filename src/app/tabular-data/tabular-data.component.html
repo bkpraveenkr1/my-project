@@ -19,13 +19,14 @@
           <td>{{item.quantity}}</td>
           <td>$ {{item.price}}</td>
           <!-- <td>$ {{item.price*item.quantity}}</td> -->
-          <td>$ {{item.total}}</td>          
+          <td>$ {{item.quantity*item.price}}</td>          
           <td (click)="removeItem(item)"><i class="fas fa-trash-alt"></i></td>
           
   
         </tr>
         <tr>
           <tr>
+            
             <td colspan="4"></td>
             <td><button (click)="emptyCart()" class="btn btn-danger">Empty Cart</button></td>
             <td><button routerLink="/" class="btn btn-primary">Shop More</button></td>

@@ -28,6 +28,7 @@ export class DataService {
   public productList = new BehaviorSubject<any>([]);
 
   constructor() { }
+
   getProducts(){
     return this.productList.asObservable();
   }
@@ -45,7 +46,7 @@ export class DataService {
   getTotalPrice() : number{
     let grandTotal = 0;
     this.cartItemList.map((a:any)=>{
-      grandTotal += a.total;
+      grandTotal += (a.quantity*a.price);
     })
     return grandTotal;
   }
@@ -58,7 +59,7 @@ export class DataService {
     this.productList.next(this.cartItemList);
   }
   removeAllCart(){
-    this.cartItemList = []
+    this.cartItemList = [];
     this.productList.next(this.cartItemList);
   }
 

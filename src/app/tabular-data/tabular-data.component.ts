@@ -54,6 +54,8 @@ export class TabularDataComponent implements OnInit {
     // })
 
     this.dataService.getProducts().subscribe(res=>{
+       console.log(res)
+
       this.product=res;
       this.grandTotal=this.dataService.getTotalPrice();
     })
@@ -96,7 +98,7 @@ export class TabularDataComponent implements OnInit {
   }
 
   emptyCart(){
-    this.dataService.removeAllCart()
+    this.dataService.removeAllCart();
   }
   
 }
