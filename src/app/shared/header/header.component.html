@@ -1,5 +1,8 @@
 <nav class="navbar">
     <h2 class="brand">My Project</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder="search products">
+  </div>
     <ul class="nav-list">
       <li><a href="#">HOME</a></li>
       <li><a routerLink="/menu" routerLinkActive="active" >MENU</a></li>
@@ -11,6 +14,5 @@
       <a routerLink="/table"><i class="fa-solid fa-cart-shopping"></i>
         <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
     </a>
-      <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
     </div>
   </nav>

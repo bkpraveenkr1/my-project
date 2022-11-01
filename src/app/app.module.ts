@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {DropdownModule} from 'primeng/dropdown';
-import {  ReactiveFormsModule  } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {ButtonModule} from 'primeng/button';
@@ -20,6 +20,8 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CartItemsComponent } from './cart-items/cart-items.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { FilterPipe } from './shared/filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MenuComponent,
     FooterComponent,
     CartItemsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ButtonModule,
     TableModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   exports: [

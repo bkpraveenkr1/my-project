@@ -8,6 +8,7 @@ import { DataService } from 'src/app/data.service';
 })
 export class HeaderComponent implements OnInit {
 public totalItem=0;
+public searchTerm !: string;
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,12 @@ public totalItem=0;
       //console.log(this.totalItem)
      }
     })
+  }
+
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.dataService.search.next(this.searchTerm);
   }
 
 }

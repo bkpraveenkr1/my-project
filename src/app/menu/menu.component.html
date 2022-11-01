@@ -1,7 +1,7 @@
 <div class="container5 mt-5 ">
   <strong class="heading">Our Menu</strong>
   <div class="cards-container ">
-    <div class="card" *ngFor="let item of menuData; let i=index">
+    <div class="card" *ngFor="let item of menuData | filter:searchKey:'title'">
       <div class="card-image-container">
         <img src="{{ item.imageUrl }}" class="image" />
       </div>

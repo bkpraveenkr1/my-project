@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   public items:items=new items();
   quantity!: number;
   cartItems:Array<any>=[];
+  searchKey:string ="";
   constructor(public apiService: ApiService, public dataService:DataService) {
   }
 
@@ -33,6 +34,10 @@ export class MenuComponent implements OnInit {
         Object.assign(a, { quantity: 1, total: +a.price });
       });
     });
+
+    this.dataService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
   }
   
 
